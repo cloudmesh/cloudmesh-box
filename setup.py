@@ -45,6 +45,9 @@ this_platform = platform.system().lower()
 
 requiers = """
 apache-libcloud
+cloudmesh-common
+cloudmesh-cmd5
+cloudmesh-sys
 """.split("\n")
 
 
