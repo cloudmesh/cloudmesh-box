@@ -17,19 +17,6 @@ source:
 	pip install -e . -U
 	cms help
 
-clean:
-	$(call banner, "CLEAN")
-	rm -rf dist
-	rm -rf *.zip
-	rm -rf *.egg-info
-	rm -rf *.eggs
-	rm -rf docs/build
-	rm -rf build
-	find . -name '__pycache__' -delete
-	find . -name '*.pyc' -delete
-	rm -rf .tox
-	rm -f *.whl
-
 
 manual:
 	mkdir -p docs-source/source/manual
@@ -93,10 +80,9 @@ nist-copy:
 #
 # TODO: BUG: This is broken
 #
-#pylint:
-#	mkdir -p docs/qc/pylint/cm
-#	pylint --output-format=html cloudmesh > docs/qc/pylint/cm/cloudmesh.html
-#	pylint --output-format=html cloud > docs/qc/pylint/cm/cloud.html
+pylint:
+	mkdir -p docs/qc
+	pylint --output-format=html cloudmesh > docs/qc/index.html
 
 clean:
 	$(call banner, "CLEAN")
@@ -106,7 +92,7 @@ clean:
 	rm -rf *.eggs
 	rm -rf docs/build
 	rm -rf build
-	find . -name '__pycache__' -delete
+	find . -type d -name __pycache__ -delete
 	find . -name '*.pyc' -delete
 	rm -rf .tox
 	rm -f *.whl
